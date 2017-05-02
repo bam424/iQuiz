@@ -10,7 +10,10 @@ import UIKit
 
 class QuizTypeViewController: UITableViewController {
     
-    var subjects = ["Mathematics", "Marvel", "Science"]
+    let subjects = ["Mathematics", "Marvel", "Science"]
+    let descriptions = ["2 + 2 = fish", "Avengers", "Chemistry, Biology, Physics"]
+    
+    //var subjects = ["Mathematics", "Marvel", "Science"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +46,10 @@ class QuizTypeViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SubjectCell", for: indexPath)
 
-        cell.textLabel?.text = subjects[indexPath.row]
+        let subject = subjects[indexPath.row]
+        cell.textLabel?.text = subject
+        cell.detailTextLabel?.text = descriptions[indexPath.row]
+        cell.imageView?.image = UIImage(named: subject)
 
         return cell
     }
