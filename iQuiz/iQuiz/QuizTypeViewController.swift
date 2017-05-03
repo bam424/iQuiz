@@ -13,7 +13,14 @@ class QuizTypeViewController: UITableViewController {
     let subjects = ["Mathematics", "Marvel", "Science"]
     let descriptions = ["2 + 2 = fish", "Avengers", "Chemistry, Biology, Physics"]
     
-    //var subjects = ["Mathematics", "Marvel", "Science"]
+    @IBAction func settingsAlert(_ sender: UIButton) {
+        let alertController = UIAlertController(title: "Settings", message:
+            "Settings go here!", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()

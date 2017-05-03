@@ -19,7 +19,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SubjectCell" textLabel="nJU-iq-BKF" detailTextLabel="lNv-Oh-YQE" style="IBUITableViewCellStyleSubtitle" id="trg-V0-Qab">
-                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="trg-V0-Qab" id="5eU-hu-YSe">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -55,6 +55,9 @@
                                 <rect key="frame" x="16" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Settings"/>
+                                <connections>
+                                    <action selector="settingsAlert:" destination="bpW-Mp-2rx" eventType="touchUpInside" id="2vk-MY-dVr"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
