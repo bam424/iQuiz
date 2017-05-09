@@ -15,6 +15,7 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.categoryTextField.text = subjectTitle
+
         // Do any additional setup after loading the view.
     }
 
