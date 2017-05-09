@@ -11,7 +11,7 @@ import UIKit
 class QuizTypeViewController: UITableViewController {
     
     let subjects = ["Mathematics", "Marvel", "Science"]
-    let descriptions = ["2 + 2 = fish", "Avengers", "Chemistry, Biology, Physics"]
+    let descriptions = ["2 + 2 = fish", "Avengers rule", "Chemistry, Biology, Physics"]
     
     @IBAction func settingsAlert(_ sender: UIButton) {
         let alertController = UIAlertController(title: "Settings", message:
