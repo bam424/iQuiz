@@ -42,7 +42,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="JAR-tq-vY8" kind="show" id="a5p-fS-qRW"/>
+                                    <segue destination="JAR-tq-vY8" kind="show" identifier="Subject" id="a5p-fS-qRW"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -69,10 +69,10 @@
             </objects>
             <point key="canvasLocation" x="868" y="95.802098950524751"/>
         </scene>
-        <!--View Controller-->
+        <!--Question View Controller-->
         <scene sceneID="cae-bK-wxz">
             <objects>
-                <viewController id="JAR-tq-vY8" sceneMemberID="viewController">
+                <viewController id="JAR-tq-vY8" customClass="QuestionViewController" customModule="iQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="j3b-vS-vUf"/>
                         <viewControllerLayoutGuide type="bottom" id="Qxs-zo-1xK"/>
@@ -80,12 +80,24 @@
                     <view key="view" contentMode="scaleToFill" id="kBc-Rt-bYL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hello" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boJ-UY-syO">
+                                <rect key="frame" x="79" y="64" width="217" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="categoryTextField" destination="boJ-UY-syO" id="Ibt-C7-FS8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tbH-Wf-dVe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1713" y="98"/>
+            <point key="canvasLocation" x="1712.8" y="97.601199400299862"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EdY-Fg-qWQ">

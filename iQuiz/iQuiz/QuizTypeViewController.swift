@@ -63,6 +63,19 @@ class QuizTypeViewController: UITableViewController {
         return cell
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Subject" {
+            let cell = sender as! UITableViewCell
+            let indexPath = self.tableView.indexPath(for: cell)
+            if (indexPath != nil) {
+                let subject = self.subjects[indexPath!.row]
+                let vc = segue.destination as! QuestionViewController
+                vc.subjectTitle = subject
+                print(vc.subjectTitle)
+            }
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
