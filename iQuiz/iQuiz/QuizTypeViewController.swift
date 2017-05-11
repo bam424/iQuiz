@@ -12,6 +12,34 @@ class QuizTypeViewController: UITableViewController {
     
     let subjects = ["Mathematics", "Marvel", "Science"]
     let descriptions = ["2 + 2 = fish", "Avengers rule", "Chemistry, Biology, Physics"]
+    let questionBank : [String : [String]] = [
+        "Mathematics" : [
+            "1 + 1 = ?",
+            "250 / 5 = ?"
+        ],
+        "Marvel" : [
+            "What is the name of Thor's hammer?",
+            "Which of these is an Infinity Stone"
+        ],
+        "Science" : [
+            "Who was the father of evolution?",
+            "Which is NOT a state of matter?"
+        ]
+    ]
+    let answerBank : [String : [[String]]] = [
+        "Mathematics" : [
+            ["4", "124", "2", "9999"],
+            ["49", "50", "125", "25"]
+        ],
+        "Marvel" : [
+            ["Infinity Gauntlet", "Eye of Agomotto", "Chituari Scepter", "Mjolnir"],
+            ["Mind Stone", "Water Stone", "Death Stone", "Dream Stone"]
+        ],
+        "Science" : [
+            ["Leonardo Di Vinci", "Charles Darwin", "Galileo", "Donald Trump"],
+            ["Solid", "Liquid", "Melted", "Gas"]
+        ]
+    ]
     
     @IBAction func settingsAlert(_ sender: UIButton) {
         let alertController = UIAlertController(title: "Settings", message:
@@ -72,7 +100,6 @@ class QuizTypeViewController: UITableViewController {
                 let subject = self.subjects[indexPath!.row]
                 let vc = segue.destination as! QuestionViewController
                 vc.subjectTitle = subject
-                print(vc.subjectTitle)
             }
         }
     }

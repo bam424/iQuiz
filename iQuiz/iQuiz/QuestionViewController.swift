@@ -10,6 +10,12 @@ import UIKit
 
 class QuestionViewController: UIViewController {
 
+    @IBOutlet weak var choice1: UIButton!
+    @IBOutlet weak var choice2: UIButton!
+    @IBOutlet weak var choice3: UIButton!
+    @IBOutlet weak var choice4: UIButton!
+    @IBOutlet weak var question: UILabel!
+    
     @IBOutlet weak var categoryTextField: UILabel!
     var subjectTitle : String!
     override func viewDidLoad() {

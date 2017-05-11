@@ -115,11 +115,21 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Answer"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mjV-La-xqY">
+                                <rect key="frame" x="313" y="34" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="categoryTextField" destination="boJ-UY-syO" id="Ibt-C7-FS8"/>
+                        <outlet property="choice1" destination="9X4-N5-LaK" id="pEU-Hh-jgN"/>
+                        <outlet property="choice2" destination="1qM-4Z-zVo" id="sQi-FR-kv6"/>
+                        <outlet property="choice3" destination="6JO-Es-OtI" id="akU-tN-tDo"/>
+                        <outlet property="choice4" destination="tEh-Ks-L00" id="gnc-8p-HJB"/>
+                        <outlet property="question" destination="72e-d7-p4x" id="kVh-D7-vyU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tbH-Wf-dVe" userLabel="First Responder" sceneMemberID="firstResponder"/>
