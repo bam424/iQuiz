@@ -41,6 +41,21 @@ class QuizTypeViewController: UITableViewController {
         ]
     ]
     
+    let correctAnswerBank : [String : [Int]] = [
+        "Mathematics" : [
+            2,
+            1
+        ],
+        "Marvel" : [
+            3,
+            0
+        ],
+        "Science" : [
+            1,
+            2
+        ]
+    ]
+    
     @IBAction func settingsAlert(_ sender: UIButton) {
         let alertController = UIAlertController(title: "Settings", message:
             "Settings go here!", preferredStyle: UIAlertControllerStyle.alert)
@@ -102,6 +117,9 @@ class QuizTypeViewController: UITableViewController {
             print(vc.questionSet)
             vc.answerSet = answerBank[subject]
             print(vc.answerSet)
+            vc.correctAnswers = correctAnswerBank[subject]
+            print(vc.correctAnswers)
+            vc.questionIndex = 0
         }
     }
 

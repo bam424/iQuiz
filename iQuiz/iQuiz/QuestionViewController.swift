@@ -18,6 +18,8 @@ class QuestionViewController: UIViewController {
     
     var questionSet : [String]!
     var answerSet : [[String]]!
+    var correctAnswers : [Int]!
+    var questionIndex : Int!
     
     @IBOutlet weak var categoryTextField: UILabel!
     var subjectTitle : String!
@@ -25,6 +27,7 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.categoryTextField.text = subjectTitle
+        setText()
 
         // Do any additional setup after loading the view.
     }
@@ -35,6 +38,13 @@ class QuestionViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func setText() {
+        question.text = questionSet[questionIndex]
+        choice1.setTitle(answerSet[questionIndex][0], for: .normal)
+        choice2.setTitle(answerSet[questionIndex][1], for: .normal)
+        choice3.setTitle(answerSet[questionIndex][2], for: .normal)
+        choice4.setTitle(answerSet[questionIndex][3], for: .normal)
+    }
 
     /*
     // MARK: - Navigation
