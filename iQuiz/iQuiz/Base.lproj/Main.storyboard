@@ -42,7 +42,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="JAR-tq-vY8" kind="show" identifier="Subject" id="a5p-fS-qRW"/>
+                                    <segue destination="JAR-tq-vY8" kind="show" identifier="Subject" id="Y6o-ZK-Fe1"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

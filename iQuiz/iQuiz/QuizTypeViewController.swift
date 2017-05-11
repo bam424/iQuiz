@@ -91,16 +91,17 @@ class QuizTypeViewController: UITableViewController {
         return cell
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Subject" {
             let cell = sender as! UITableViewCell
             let indexPath = self.tableView.indexPath(for: cell)
-            if (indexPath != nil) {
-                let subject = self.subjects[indexPath!.row]
-                let vc = segue.destination as! QuestionViewController
-                vc.subjectTitle = subject
-            }
+            let vc = segue.destination as! QuestionViewController
+            let subject = self.subjects[(indexPath?.row)!]
+            vc.subjectTitle = subject
+            vc.questionSet = questionBank[subject]
+            print(vc.questionSet)
+            vc.answerSet = answerBank[subject]
+            print(vc.answerSet)
         }
     }
 

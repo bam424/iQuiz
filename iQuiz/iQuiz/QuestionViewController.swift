@@ -16,8 +16,12 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var choice4: UIButton!
     @IBOutlet weak var question: UILabel!
     
+    var questionSet : [String]!
+    var answerSet : [[String]]!
+    
     @IBOutlet weak var categoryTextField: UILabel!
     var subjectTitle : String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.categoryTextField.text = subjectTitle
