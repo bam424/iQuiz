@@ -17,8 +17,10 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var question: UILabel!
     
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var resultsButton: UIButton!
     
     var pressedButton = false
+    var answerButtons : [UIButton] = [UIButton]()
     
     @IBAction func buttonPressed(_ sender: UIButton) {
         if(pressedButton == false) {
@@ -26,6 +28,7 @@ class QuestionViewController: UIViewController {
             sender.backgroundColor = UIColor.blue
             sender.layer.cornerRadius = 10
             sender.setTitleColor(.white, for: .normal)
+            sender.isSelected = true
             nextButton.isHidden = false
         } else {
             pressedButton = false
@@ -39,26 +42,51 @@ class QuestionViewController: UIViewController {
     @IBAction func submitButtonPressed(_ sender: UIButton) {
         var text = sender.titleLabel?.text
         if text == "Submit >" {
+            answerCheck()
             questionIndex = questionIndex + 1
-            sender.setTitle("Next >", for: .normal)
+            if(questionIndex != questionSet.count) {
+                sender.setTitle("Next >", for: .normal)
+            } else {
+                nextButton.isHidden = true
+                correctLabel.isHidden = true
+                resultsButton.isHidden = false
+            }
             text = (sender.titleLabel?.text)!
         } else {
-            if(questionIndex < questionSet.count) {
-                print("test")
-                setText()
-                nextButton.isHidden = true
-            } else {
-                
+            print("test")
+            setText()
+            for button in answerButtons {
+                button.backgroundColor = UIColor.white
+                button.setTitleColor(.blue, for: .normal)
+                button.isSelected = false
             }
+            nextButton.isHidden = true
         }
     }
     
-    
+    func answerCheck() {
+        correctLabel.isHidden = false
+        var correctAnswer = answerSet[questionIndex][correctAnswers[questionIndex]]
+        print(correctAnswer)
+        for button in answerButtons {
+            if(button.isSelected) {
+                if (button.currentTitle! == correctAnswer) {
+                    correctLabel.text! = "Correct!"
+                    button.backgroundColor = UIColor.green
+                } else {
+                    correctLabel.text! = "Wrong!"
+                    button.backgroundColor = UIColor.red
+                }
+            }
+        }
+    }
     
     var questionSet : [String]!
     var answerSet : [[String]]!
     var correctAnswers : [Int]!
     var questionIndex : Int!
+    var results : Int!
+    @IBOutlet weak var correctLabel: UILabel!
     
     @IBOutlet weak var categoryTextField: UILabel!
     var subjectTitle : String!
@@ -68,6 +96,9 @@ class QuestionViewController: UIViewController {
         self.categoryTextField.text = subjectTitle
         setText()
         nextButton.isHidden = true
+        resultsButton.isHidden = true
+        correctLabel.isHidden = true
+        answerButtons = [self.choice1, self.choice2, self.choice3, self.choice4]
 
         // Do any additional setup after loading the view.
     }

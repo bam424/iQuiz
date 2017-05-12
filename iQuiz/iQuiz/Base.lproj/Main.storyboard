@@ -82,14 +82,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hello" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boJ-UY-syO">
-                                <rect key="frame" x="16" y="64" width="343" height="68"/>
+                                <rect key="frame" x="16" y="64" width="343" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="72e-d7-p4x">
-                                <rect key="frame" x="16" y="140" width="343" height="100"/>
+                                <rect key="frame" x="16" y="169" width="343" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -133,13 +133,28 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyz-kb-tEf">
-                                <rect key="frame" x="93" y="582" width="199" height="30"/>
+                                <rect key="frame" x="88" y="568" width="199" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Submit &gt;"/>
                                 <connections>
                                     <action selector="submitButtonPressed:" destination="JAR-tq-vY8" eventType="touchUpInside" id="VQT-ZY-Io5"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAD-3h-uBe">
+                                <rect key="frame" x="88" y="606" width="199" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Results"/>
+                                <connections>
+                                    <segue destination="QaJ-2N-qPm" kind="show" identifier="Results" id="fmS-1I-Phe"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Answer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hgn-ID-FPe">
+                                <rect key="frame" x="16" y="130" width="343" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -149,13 +164,33 @@
                         <outlet property="choice2" destination="1qM-4Z-zVo" id="sQi-FR-kv6"/>
                         <outlet property="choice3" destination="6JO-Es-OtI" id="akU-tN-tDo"/>
                         <outlet property="choice4" destination="tEh-Ks-L00" id="gnc-8p-HJB"/>
+                        <outlet property="correctLabel" destination="Hgn-ID-FPe" id="4Fw-zc-fv0"/>
                         <outlet property="nextButton" destination="zyz-kb-tEf" id="LAm-Ud-vuZ"/>
                         <outlet property="question" destination="72e-d7-p4x" id="kVh-D7-vyU"/>
+                        <outlet property="resultsButton" destination="UAD-3h-uBe" id="C6b-Bo-SgS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tbH-Wf-dVe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1712.8" y="97.601199400299862"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="96e-wp-wBX">
+            <objects>
+                <viewController id="QaJ-2N-qPm" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="E9u-LE-dz0"/>
+                        <viewControllerLayoutGuide type="bottom" id="WMF-Er-QAF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1Ss-EC-Zn4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UCC-Li-QbE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2479" y="98"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EdY-Fg-qWQ">
