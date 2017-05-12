@@ -15,9 +15,13 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var choice3: UIButton!
     @IBOutlet weak var choice4: UIButton!
     @IBOutlet weak var question: UILabel!
+    var pressedButton = false
     
     
     @IBAction func buttonPressed(_ sender: UIButton) {
+        sender.backgroundColor = UIColor.blue
+        sender.layer.cornerRadius = 10
+        pressedButton = true
         print(sender.currentTitle!)
     }
     
