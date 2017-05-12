@@ -19,8 +19,15 @@ class QuestionViewController: UIViewController {
     
     
     @IBAction func buttonPressed(_ sender: UIButton) {
-        sender.backgroundColor = UIColor.blue
-        sender.layer.cornerRadius = 10
+        if(sender.isSelected) {
+            sender.isSelected = true
+            sender.backgroundColor = UIColor.blue
+            sender.layer.cornerRadius = 10
+        } else {
+            sender.isSelected = false
+        }
+        //sender.backgroundColor = UIColor.blue
+        //sender.layer.cornerRadius = 10
         pressedButton = true
         print(sender.currentTitle!)
     }
