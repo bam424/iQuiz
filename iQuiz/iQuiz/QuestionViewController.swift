@@ -15,22 +15,45 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var choice3: UIButton!
     @IBOutlet weak var choice4: UIButton!
     @IBOutlet weak var question: UILabel!
+    
+    @IBOutlet weak var nextButton: UIButton!
+    
     var pressedButton = false
     
-    
     @IBAction func buttonPressed(_ sender: UIButton) {
-        if(sender.isSelected) {
-            sender.isSelected = true
+        if(pressedButton == false) {
+            pressedButton = true
             sender.backgroundColor = UIColor.blue
             sender.layer.cornerRadius = 10
+            sender.setTitleColor(.white, for: .normal)
+            nextButton.isHidden = false
         } else {
-            sender.isSelected = false
+            pressedButton = false
+            sender.backgroundColor = UIColor.white
+            sender.setTitleColor(.blue, for: .normal)
+            nextButton.isHidden = true
         }
-        //sender.backgroundColor = UIColor.blue
-        //sender.layer.cornerRadius = 10
-        pressedButton = true
         print(sender.currentTitle!)
     }
+    
+    @IBAction func submitButtonPressed(_ sender: UIButton) {
+        var text = sender.titleLabel?.text
+        if text == "Submit >" {
+            questionIndex = questionIndex + 1
+            sender.setTitle("Next >", for: .normal)
+            text = (sender.titleLabel?.text)!
+        } else {
+            if(questionIndex < questionSet.count) {
+                print("test")
+                setText()
+                nextButton.isHidden = true
+            } else {
+                
+            }
+        }
+    }
+    
+    
     
     var questionSet : [String]!
     var answerSet : [[String]]!
@@ -44,6 +67,7 @@ class QuestionViewController: UIViewController {
         super.viewDidLoad()
         self.categoryTextField.text = subjectTitle
         setText()
+        nextButton.isHidden = true
 
         // Do any additional setup after loading the view.
     }
@@ -60,6 +84,7 @@ class QuestionViewController: UIViewController {
         choice2.setTitle(answerSet[questionIndex][1], for: .normal)
         choice3.setTitle(answerSet[questionIndex][2], for: .normal)
         choice4.setTitle(answerSet[questionIndex][3], for: .normal)
+        nextButton.setTitle("Submit >", for: .normal)
     }
 
     /*
