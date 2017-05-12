@@ -18,7 +18,7 @@ class QuizTypeViewController: UITableViewController {
             "250 / 5 = ?"
         ],
         "Marvel" : [
-            "What is the name of Thor's hammer?",
+            "What is the name of Thor's weapon?",
             "Which of these is an Infinity Stone"
         ],
         "Science" : [

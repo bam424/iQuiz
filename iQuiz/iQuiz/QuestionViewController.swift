@@ -16,6 +16,11 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var choice4: UIButton!
     @IBOutlet weak var question: UILabel!
     
+    
+    @IBAction func buttonPressed(_ sender: UIButton) {
+        print(sender.currentTitle!)
+    }
+    
     var questionSet : [String]!
     var answerSet : [[String]]!
     var correctAnswers : [Int]!
