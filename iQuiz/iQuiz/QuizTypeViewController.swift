@@ -114,12 +114,10 @@ class QuizTypeViewController: UITableViewController {
             let subject = self.subjects[(indexPath?.row)!]
             vc.subjectTitle = subject
             vc.questionSet = questionBank[subject]
-            print(vc.questionSet)
             vc.answerSet = answerBank[subject]
-            print(vc.answerSet)
             vc.correctAnswers = correctAnswerBank[subject]
-            print(vc.correctAnswers)
             vc.questionIndex = 0
+            vc.quizResults = 0
         }
     }
 

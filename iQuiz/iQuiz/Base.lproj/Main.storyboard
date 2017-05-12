@@ -174,10 +174,10 @@
             </objects>
             <point key="canvasLocation" x="1712.8" y="97.601199400299862"/>
         </scene>
-        <!--View Controller-->
+        <!--Results View Controller-->
         <scene sceneID="96e-wp-wBX">
             <objects>
-                <viewController id="QaJ-2N-qPm" sceneMemberID="viewController">
+                <viewController id="QaJ-2N-qPm" customClass="ResultsViewController" customModule="iQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E9u-LE-dz0"/>
                         <viewControllerLayoutGuide type="bottom" id="WMF-Er-QAF"/>
@@ -185,12 +185,41 @@
                     <view key="view" contentMode="scaleToFill" id="1Ss-EC-Zn4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIs-cI-9zz">
+                                <rect key="frame" x="16" y="53" width="343" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHh-x2-81U">
+                                <rect key="frame" x="16" y="254" width="343" height="98"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78n-HY-fgU">
+                                <rect key="frame" x="50" y="540" width="275" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Back to Quiz Selection"/>
+                                <connections>
+                                    <segue destination="bpW-Mp-2rx" kind="show" id="aXe-oF-2S7"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="resultsMessage" destination="aIs-cI-9zz" id="wLw-To-FaD"/>
+                        <outlet property="resultsScore" destination="cHh-x2-81U" id="ezJ-YF-Rew"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UCC-Li-QbE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2479" y="98"/>
+            <point key="canvasLocation" x="2477.5999999999999" y="97.601199400299862"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EdY-Fg-qWQ">
@@ -211,4 +240,7 @@
             <point key="canvasLocation" x="-71.200000000000003" y="95.802098950524751"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="aXe-oF-2S7"/>
+    </inferredMetricsTieBreakers>
 </document>

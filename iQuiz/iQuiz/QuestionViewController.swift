@@ -53,7 +53,6 @@ class QuestionViewController: UIViewController {
             }
             text = (sender.titleLabel?.text)!
         } else {
-            print("test")
             setText()
             for button in answerButtons {
                 button.backgroundColor = UIColor.white
@@ -67,12 +66,13 @@ class QuestionViewController: UIViewController {
     func answerCheck() {
         correctLabel.isHidden = false
         var correctAnswer = answerSet[questionIndex][correctAnswers[questionIndex]]
-        print(correctAnswer)
         for button in answerButtons {
             if(button.isSelected) {
                 if (button.currentTitle! == correctAnswer) {
                     correctLabel.text! = "Correct!"
                     button.backgroundColor = UIColor.green
+                    quizResults = quizResults + 1
+                    print(quizResults)
                 } else {
                     correctLabel.text! = "Wrong!"
                     button.backgroundColor = UIColor.red
@@ -85,7 +85,7 @@ class QuestionViewController: UIViewController {
     var answerSet : [[String]]!
     var correctAnswers : [Int]!
     var questionIndex : Int!
-    var results : Int!
+    var quizResults : Int!
     @IBOutlet weak var correctLabel: UILabel!
     
     @IBOutlet weak var categoryTextField: UILabel!
@@ -116,6 +116,14 @@ class QuestionViewController: UIViewController {
         choice3.setTitle(answerSet[questionIndex][2], for: .normal)
         choice4.setTitle(answerSet[questionIndex][3], for: .normal)
         nextButton.setTitle("Submit >", for: .normal)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Results" {
+            let results = segue.destination as! ResultsViewController
+            results.questions = questionSet.count
+            results.correct = quizResults
+        }
     }
 
     /*
