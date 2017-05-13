@@ -18,13 +18,17 @@ class ResultsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.navigationItem.leftBarButtonItem = nil;
+        self.navigationItem.hidesBackButton = true;
+        
         resultsScore.text = "\(correct!) / \(questions!)"
         if (correct / questions == 1) {
             resultsMessage.text = "Perfect! You're a genius!"
         } else {
             resultsMessage.text = "Do better next time!!"
         }
+        
         // Do any additional setup after loading the view.
     }
 
@@ -32,6 +36,7 @@ class ResultsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
 
     /*

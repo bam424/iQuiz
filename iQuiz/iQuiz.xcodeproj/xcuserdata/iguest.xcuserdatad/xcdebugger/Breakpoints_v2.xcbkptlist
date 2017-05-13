@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iQuiz/QuestionViewController.swift"
-            timestampString = "516323938.351915"
+            timestampString = "516326662.434476"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "answerCheck()"
             landmarkType = "7">
             <Locations>
