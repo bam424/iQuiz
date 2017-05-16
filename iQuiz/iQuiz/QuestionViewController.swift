@@ -65,7 +65,7 @@ class QuestionViewController: UIViewController {
     
     func answerCheck() {
         correctLabel.isHidden = false
-        var correctAnswer = answerSet[questionIndex][correctAnswers[questionIndex]]
+        let correctAnswer = answerSet[questionIndex][correctAnswers[questionIndex]]
         for button in answerButtons {
             if(button.isSelected) {
                 if (button.currentTitle! == correctAnswer) {

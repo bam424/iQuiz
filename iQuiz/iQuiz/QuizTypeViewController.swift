@@ -12,8 +12,12 @@ class QuizTypeViewController: UITableViewController {
     
     var urlString = "http://tednewardsandbox.site44.com/questions.json"
     
-    let subjects = ["Mathematics", "Marvel", "Science"]
-    let descriptions = ["2 + 2 = fish", "Avengers rule", "Chemistry, Biology, Physics"]
+    var subjects = ["Mathematics", "Marvel", "Science"]
+    var descriptions = ["2 + 2 = fish", "Avengers rule", "Chemistry, Biology, Physics"]
+    var questions = [String]()
+    var answers = [String]()
+    var correctAnswers = [Int]()
+    
     let questionBank : [String : [String]] = [
         "Mathematics" : [
             "1 + 1 = ?",
@@ -57,6 +61,7 @@ class QuizTypeViewController: UITableViewController {
             2
         ]
     ]
+ 
     
     @IBAction func settingsAlert(_ sender: UIButton) {
         let alertController = UIAlertController(title: "Settings", message:
@@ -75,7 +80,7 @@ class QuizTypeViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        getJSON()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -83,7 +88,50 @@ class QuizTypeViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-    
+    func getJSON() {
+        let url = URL(string: urlString)
+        let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
+            if error != nil {
+                print("Error present")
+            } else {
+                if let content = data {
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                        for i in 0...json.count - 1 {
+                            if let current = json[i] as? NSDictionary {
+                                if let title = current["title"] {
+                                    self.subjects[i] = title as! String
+                                }
+                                if let desc = current["desc"] {
+                                    self.descriptions[i] = desc as! String
+                                }
+                                if let questions = current["questions"] as? NSDictionary {
+                                    if let text = questions["text"] as? String {
+                                        self.questions[i] = text
+                                        print(self.questions)
+                                    }
+                                    if let correctAnswer = questions["answer"] as? Int {
+                                        self.correctAnswers[i] = correctAnswer
+                                        print(self.correctAnswers)
+                                    }
+                                    if let choices = questions["answers"] as? String {
+                                        self.answers[i] = choices
+                                        print(self.answers)
+                                    }
+                                }
+                            }
+                        }
+                    } catch {
+                        print ("There was an error")
+                    }
+                }
+            }
+        }
+        task.resume()
+        print(self.questions)
+        print(self.answers)
+        print(self.correctAnswers)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
