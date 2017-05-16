@@ -10,6 +10,8 @@ import UIKit
 
 class QuizTypeViewController: UITableViewController {
     
+    var urlString = "http://tednewardsandbox.site44.com/questions.json"
+    
     let subjects = ["Mathematics", "Marvel", "Science"]
     let descriptions = ["2 + 2 = fish", "Avengers rule", "Chemistry, Biology, Physics"]
     let questionBank : [String : [String]] = [
