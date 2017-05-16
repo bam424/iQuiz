@@ -60,8 +60,14 @@ class QuizTypeViewController: UITableViewController {
     
     @IBAction func settingsAlert(_ sender: UIButton) {
         let alertController = UIAlertController(title: "Settings", message:
-            "Settings go here!", preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
+            "URL goes here!", preferredStyle: .alert)
+        alertController.addTextField { (textField) in
+            textField.text = self.urlString
+        }
+
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: { (_) in
+            self.urlString = (alertController.textFields?[0].text!)!
+        }))
         
         self.present(alertController, animated: true, completion: nil)
     }
