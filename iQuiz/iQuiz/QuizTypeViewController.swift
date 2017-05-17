@@ -11,7 +11,7 @@ import UIKit
 class QuizTypeViewController: UITableViewController {
     
     var urlString = "http://tednewardsandbox.site44.com/questions.json"
-    
+    var refresher: UIRefreshControl!
     var subjects = ["Mathematics", "Marvel", "Science"]
     var descriptions = ["2 + 2 = fish", "Avengers rule", "Chemistry, Biology, Physics"]
     var questions = [String]()
@@ -70,8 +70,9 @@ class QuizTypeViewController: UITableViewController {
             textField.text = self.urlString
         }
 
-        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: { (_) in
+        alertController.addAction(UIAlertAction(title: "Refresh", style: UIAlertActionStyle.default,handler: { (_) in
             self.urlString = (alertController.textFields?[0].text!)!
+            self.getJSON()
         }))
         
         self.present(alertController, animated: true, completion: nil)
@@ -81,11 +82,23 @@ class QuizTypeViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getJSON()
+        
+        refresher = UIRefreshControl()
+        refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refresher.addTarget(self, action: #selector(QuizTypeViewController.refresh), for: UIControlEvents.valueChanged)
+        tableView.addSubview(refresher)
+        refresher.endRefreshing()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    func refresh() {
+        getJSON()
+        self.tableView.reloadData()
+        refresher.endRefreshing()
     }
     
     func getJSON() {
@@ -105,16 +118,16 @@ class QuizTypeViewController: UITableViewController {
                                 if let desc = current["desc"] {
                                     self.descriptions[i] = desc as! String
                                 }
-                                if let questions = current["questions"] as? NSDictionary {
-                                    if let text = questions["text"] as? String {
+                                if let question = current["questions"] as? NSDictionary {
+                                    if let text = question["text"] as? String {
                                         self.questions[i] = text
                                         print(self.questions)
                                     }
-                                    if let correctAnswer = questions["answer"] as? Int {
+                                    if let correctAnswer = question["answer"] as? Int {
                                         self.correctAnswers[i] = correctAnswer
                                         print(self.correctAnswers)
                                     }
-                                    if let choices = questions["answers"] as? String {
+                                    if let choices = question["answers"] as? String {
                                         self.answers[i] = choices
                                         print(self.answers)
                                     }
@@ -128,9 +141,6 @@ class QuizTypeViewController: UITableViewController {
             }
         }
         task.resume()
-        print(self.questions)
-        print(self.answers)
-        print(self.correctAnswers)
     }
 
     override func didReceiveMemoryWarning() {
